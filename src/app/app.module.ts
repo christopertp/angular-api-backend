@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from './data.services';
+import { ProductsModule } from "./products/products.module"
 
 import { AppComponent } from './app.component';
 
@@ -8,7 +12,10 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    ProductsModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
   ],
   providers: [],
   bootstrap: [AppComponent]
